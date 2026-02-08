@@ -27,7 +27,7 @@ Full-stack web application that uses YOLO Pose models to detect and analyze gymn
 ### Backend
 
 ```bash
-cd gympose/backend
+cd backend
 
 # Create and activate a virtual environment (recommended)
 python -m venv venv
@@ -46,7 +46,7 @@ python -m uvicorn main:app --host 0.0.0.0 --port 8000
 ### Frontend
 
 ```bash
-cd gympose/frontend
+cd frontend
 
 # Install dependencies
 npm install
@@ -123,13 +123,14 @@ The UI groups these into navigable cards with dot indicators. Filters allow view
 ## Project Structure
 
 ```
-gympose/
 ├── backend/
 │   ├── main.py          # FastAPI application and endpoints
 │   ├── detection.py     # YOLO model loading and inference (singleton cache)
 │   ├── angles.py        # Joint angle math, position classification, deduction rules
 │   ├── video.py         # Video processing pipeline, annotation, snapshot segments
 │   ├── models/          # YOLO .pt weights (auto-downloaded, git-ignored)
+│   ├── uploads/         # Uploaded videos (git-ignored)
+│   ├── results/         # Annotated videos, CSVs, snapshots (git-ignored)
 │   └── requirements.txt
 ├── frontend/
 │   ├── src/
@@ -147,5 +148,6 @@ gympose/
 │   ├── vite.config.js
 │   ├── postcss.config.js
 │   └── tailwind.config.js
+├── CLAUDE.md
 └── README.md
 ```
